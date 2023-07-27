@@ -75,7 +75,7 @@ No primeiro exercício vamos praticar a instalação e configuração do ChakraU
         export default App;
         ```
 
-    2. Obtive o seguinte resultado:
+    2. Obtive o seguinte resultado:<br>
        ![Alt text](image.png)
 
 ## Exercício 2
