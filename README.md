@@ -1,45 +1,124 @@
 # Design System - Exercício
 
-### Setup do projeto no Git
+## Índice
 
-**Siga esses passos pra fazer o setup e poder trabalhar no seu projeto:**
+-   [1. Instalação e Material](#instalação-e-material)
+-   [2. Exercício 1](#exercício-1)
+-   [3. Exercício 2](#exercício-2)
+-   [4. Exercício 3](#exercício-3)
 
--  [ ] Crie um **fork** deste projeto.
-   <details>
-      <summary>Esqueceu como se faz?</summary>
-      <img src="https://firebasestorage.googleapis.com/v0/b/assets-conteudo.appspot.com/o/gerais%2Ffork.png?alt=media&token=7030e997-246a-41fe-a75f-2a2ced61e54d" alt="Fork a sua própria cópia de nome-do-repo"/>
-   </details>
--  [ ] Clone sua **PRÓPRIA** versão do repositório
-   <details>
-      <summary>Esqueceu como se faz?</summary>
-      <img src="https://firebasestorage.googleapis.com/v0/b/assets-conteudo.appspot.com/o/gerais%2Fclone-repo.png?alt=media&token=d8b3c101-c6d4-4371-b018-ae4edec7e34c" alt="Garanta que o repositório é seu-usuário/nome-do-repo e faça o clone"/>
-   </details>
--  [ ] Crie uma nova branch: git checkout -b `<turma-nome-sobrenome>`.
-   <details>
-      <summary>Entenda o comando `git checkout -b`</summary>
-      <p>Na aula vocês aprenderam a criar uma branch (`git branch "nome-branch"`) e se mover até ela (`git checkout "nome-branch"`). Porém, o git permite utilizar contrações para realizar mais de ação com um único comando, que é o caso do (`git checkout -b "nome-branch"`), que cria e automaticamente se move para a branch recém criada.</p>
-   </details>
--  [ ] Implemente o projeto na branch `<turma-nome-sobrenome>`. Lembre-se de fazer commits.
--  [ ] Dê push nos commits: git push origin `<turma-nome-sobrenome>`.
+## Instalação e Material
 
-**Siga os passos abaixo ao terminar seu projeto, para enviá-lo:**
+### Instalação
 
--  [ ] Envie um Pull Request da sua branch recém enviada, para que seja possível fazer o merge depois. **POR FAVOR NAO FAÇA O MERGE DO SEU PRÓPRIO PULL REQUEST**
--  [ ] Após o momento de feedback e correção, aprove seu Pull Request e faça o merge
--  [ ] Seu projeto será considerado completo quando a aprovação e o merge com a main acontecerem **em seu próprio repositório**.
+-   Para fazer a instalação do Chakra UI basta rodar o seguinte comando:
 
-### Como eu vou executar os exercícios?
-Crie um aplicativo React do zero e inicie pelo exercício 1.
+    ```
+    npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+    ```
 
-### O que você precisa saber e praticar desta aula?
+-   Após a instalação da Lib, precisamos **chamar** o `provider`, isso pode ser feito no `App.js` ou no `index.js`:
 
-- [ ] item 1 - React
-- [ ] item 2 - Instalação e configuração do ChakraUI
-- [ ] item 3 - ChakraUI
+    -   Dentro do `App.js`:
+        -   importar:
+            ```
+            (...)
+            import { ChakraBaseProvider } from '@chakra-ui/react';
+            ```
+            (...)
+        -   chamar:
+            ```
+            (...)
+                return (
+                <ChakraBaseProvider>
+                    <h1>Me apague quando for iniciar!</h1>
+                    <p>Chame o Card aqui!</p>
+                </ChakraBaseProvider>
+            );
+            (...)
+            ```
+    -   Dentro do `index.js`:
 
-Cada pasta deste repo possui um README.md com o enunciado do exercício.
+        ```
+        import React from 'react';
+        import ReactDOM from 'react-dom/client';
+        import App from './App';
+        import { ChakraBaseProvider } from '@chakra-ui/react';
 
-### Informações úteis sobre o assunto
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(
+            <React.StrictMode>
+                <ChakraBaseProvider>
+                    <App />
+                </ChakraBaseProvider>
+            </React.StrictMode>
+        );
+        ```
+
+    -   Onde a importação do `Provider` foi feita, faça também, a importação do `theme` e passe-o como parâmetro para o componente `ChakraBaseProvider`:
+
+        ```
+           import React from 'react';
+        import ReactDOM from 'react-dom/client';
+        import App from './App';
+        import { ChakraBaseProvider, theme } from '@chakra-ui/react';
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(
+           <React.StrictMode>
+                 <ChakraBaseProvider theme={theme}>
+                    <App />
+                 </ChakraBaseProvider>
+           </React.StrictMode>
+        );
+        ```
+
+### Material
 
 [Documentação do ChakraUI](https://chakra-ui.com/getting-started)<br>
 [Templates do ChakraUI](https://chakra-templates.dev/components/cards)
+
+## Exercício 1
+
+### Enunciado
+
+No primeiro exercício vamos praticar a instalação e configuração do ChakraUI.
+
+-   Instale o React
+-   Instale o ChakraUI
+-   Configure o Provider no App
+-   Implemente um botão do Chakra no App para confirmar que tudo está funcionando
+
+Se você não estiver lembrando como iniciar um aplicativo React, aqui está um link com diferentes formas de criá-lo:
+https://www.notion.so/labenu/Cria-o-de-um-App-React-c1b9739d6ca54227b4acad0419b73ee0
+
+### Resolução
+
+## Exercício 2
+
+### Enunciado
+
+Agora vamos utilizar um template pronto de Card no Chakra e implementá-lo.
+
+-   Acesse o link dos templates de Card do Chakra no README do repositório
+-   Escolha um dos Cards prontos e implemente-o em um arquivo separado e chame-o no seu App (pode ser igual o da aula)
+-   Teste tudo e confirme que está funcionando
+
+### Resolução
+
+## Exercício 3
+
+### Enunciado
+
+Para finalizar, crie um array com no mínimo 3 itens, baseado no Card que você implementou.
+<br><br>
+Por exemplo: se escolheu o Card de produtos (Product Simple), então o array guardará objetos com propriedades brand (marca), name (nome), priceDescount (preço com desconto) e priceNormal (preço normal).
+<br><br>
+Não iremos utilizar o axios nesse exercício, por isso vamos criar nosso próprio array de dados.
+
+-   Você pode decidir se vai deixar o array em um arquivo separado e exportá-lo, ou então criá-lo direto no App.js
+-   Crie um estado e coloque seu array como valor inicial (não se preocupe em utilizar a função de atualização)
+-   Mapeie o estado, retornando o Card passando as props necessárias para personalização
+-   Edite o Card para receber as props e utilizá-las em seu interior
+
+### Resolução
