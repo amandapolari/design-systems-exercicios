@@ -241,3 +241,6 @@ Não iremos utilizar o axios nesse exercício, por isso vamos criar nosso própr
     11. '7xl' - 7x Extra Large
     12. '8xl' - 8x Extra Large
     ```
+
+- Ao final consegui cards diferentes com esse modelo: <br>
+![image](https://github.com/amandapolari/design-systems-exercicios/assets/97640319/ca2afb73-7368-4e46-bb0f-82201e74ba7f)
